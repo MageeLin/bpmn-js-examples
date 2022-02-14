@@ -1,4 +1,4 @@
-// we use stringify to inline an example XML document.
+// 导入示例的XML文本
 import qrDiagram from '../resources/qr-code.bpmn';
 
 import BpmnViewer from 'bpmn-js/lib/NavigatedViewer';
@@ -6,7 +6,7 @@ import BpmnViewer from 'bpmn-js/lib/NavigatedViewer';
 
 var bpmnViewer = new BpmnViewer({
   container: '#canvas',
-  /* uncomment to configure defaults for all overlays
+  /* 取消注释可以给所有的overlays添加默认配置
   overlays: {
     defaults: {
       show: { minZoom: 1 },
@@ -17,7 +17,7 @@ var bpmnViewer = new BpmnViewer({
 });
 
 
-// import qr diagram
+// 导入qr图表
 
 bpmnViewer.importXML(qrDiagram).then(function() {
 
@@ -25,10 +25,10 @@ bpmnViewer.importXML(qrDiagram).then(function() {
       overlays = bpmnViewer.get('overlays');
 
 
-  // zoom to fit full viewport
+  // 缩放到适应视图
   canvas.zoom('fit-viewport');
 
-  // attach an overlay to a node
+  // 给 node 附加 overlay
   overlays.add('SCAN_OK', 'note', {
     position: {
       bottom: 0,
@@ -38,7 +38,7 @@ bpmnViewer.importXML(qrDiagram).then(function() {
   });
 
 
-  // configure scale=false to use non-scaling overlays
+  // 配置scale为false使用不可缩放的overlay
   overlays.add('START_PROCESS', 'note', {
     position: {
       bottom: 0,
@@ -48,7 +48,7 @@ bpmnViewer.importXML(qrDiagram).then(function() {
     html: '<div class="diagram-note">I don\'t scale</div>'
   });
 
-  // configure scale={ min: 1 } to use non-shrinking overlays
+  // 配置 scale={ min: 1 }，当缩放小于100%时不会继续缩放
   overlays.add('SCAN_QR_CODE', 'note', {
     position: {
       bottom: 0,
@@ -60,7 +60,7 @@ bpmnViewer.importXML(qrDiagram).then(function() {
 
 
 
-  // configure show={ minZoom: 0.6 } to hide overlays at low zoom levels
+  // 配置 show={ minZoom: 0.6 }，当缩放级别小于0.6时自动隐藏
   overlays.add('END_PROCESS', 'note', {
     position: {
       bottom: 0,
@@ -74,5 +74,5 @@ bpmnViewer.importXML(qrDiagram).then(function() {
 
 }).catch(function(err) {
 
-  console.error('could not import BPMN 2.0 diagram', err);
+  console.error('无法导入 BPMN 2.0 图表', err);
 });
