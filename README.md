@@ -9,7 +9,7 @@
 
 ## 初级
 
-- [bundling](./bundling) - 如何使用[npm](http://npmjs.org)安装 bpmn-js 的示例, 在 node 应用中使用它，并使用[Webpack](https://webpack.js.org/)将其打包为 node 和浏览器应用这两种情况.
+- [bundling](./bundling) - 如何使用[npm](http://npmjs.org)安装 bpmn-js 的示例, 在 node 应用中添加它，并使用[Webpack](https://webpack.js.org/)将其打包为 node 风格的Web应用.
 - [colors](./colors) - 向 BPMN 图表中添加颜色的不同方式的示例.
 - [interaction](./interaction) - 监听图表事件并且响应它.
 - [overlays](./overlays) - 使用 overlays 向 BPMN 2.0 图表中添加自定义的按钮或展示附加信息.
