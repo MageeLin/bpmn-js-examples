@@ -1,17 +1,16 @@
 # bpmn-js interaction example
 
-An example that showcases the different ways to enable user interaction with
-BPMN diagrams using [bpmn-js](https://github.com/bpmn-io/bpmn-js).
+一个示例，展示了使用 [bpmn-js](https://github.com/bpmn-io/bpmn-js) 实现用户与 BPMN 关系图交互的不同方法。
 
-[__Try out__](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/interaction/index.html).
-
-
-## About
-
-The embeds a BPMN viewer, opens a BPMN 2.0 diagram and logs user interactions.
+[__尝试__](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/interaction/index.html).
 
 
-## Usage summary
+## 关于
+
+嵌入一个 BPMN viewer，打开一个 BPMN 2.0 图表并记录用户交互。
+
+
+## 用法总结
 
 You may attach interaction event listeners to a BPMN viewer/modeler as soon as
 it has a diagram loaded:
