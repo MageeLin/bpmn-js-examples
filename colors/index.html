@@ -11,22 +11,22 @@
     }
 
     .highlight:not(.djs-connection) .djs-visual > :nth-child(1) {
-      fill: green !important; /* color elements as green */
+      fill: green !important; /* 将element填充为绿色 */
     }
 
     .highlight-overlay {
-      background-color: green; /* color elements as green */
+      background-color: green; /* 将element填充为绿色 */
       opacity: 0.4;
-      pointer-events: none; /* no pointer events, allows clicking through onto the element */
+      pointer-events: none; /* 无pointer事件，允许单击element */
       border-radius: 10px;
     }
   </style>
 
   <!--
-    this is an example of how to add colors to your BPMN diagram using bpmn-js
+    这是一个使用 bpmn-js 向 BPMN 图表中添加颜色的示例
   -->
 
-  <title>bpmn-js colors example - bpmn-js-examples</title>
+  <title>bpmn-js 颜色示例 - bpmn-js-examples</title>
 </head>
 <body>
 
@@ -34,14 +34,14 @@
 
   <div id="diagram"></div>
 
-  <!-- required modeler styles -->
+  <!-- 必需的modeler样式 -->
   <link rel="stylesheet" href="https://unpkg.com/bpmn-js@8.9.1/dist/assets/diagram-js.css">
   <link rel="stylesheet" href="https://unpkg.com/bpmn-js@8.9.1/dist/assets/bpmn-font/css/bpmn.css">
 
-  <!-- modeler distro -->
+  <!-- modeler的发行版 -->
   <script src="https://unpkg.com/bpmn-js@8.9.1/dist/bpmn-modeler.development.js"></script>
 
-  <!-- jquery (required for example only) -->
+  <!-- jquery (只有本示例需要) -->
   <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
 
   <!-- app -->
@@ -60,7 +60,7 @@
           elementRegistry = viewer.get('elementRegistry'),
           modeling = viewer.get('modeling');
 
-      // Option 1: Color via Overlay
+      // 选项 1: 通过Overlay修改颜色
       var shape = elementRegistry.get('CalmCustomerTask');
 
       var $overlayHtml = $('<div class="highlight-overlay">')
@@ -77,7 +77,7 @@
         html: $overlayHtml
       });
 
-      // Option 2: Color via BPMN 2.0 Extension
+      // 选项 2: 通过BPMN 2.0 扩展来修改颜色
       var elementToColor = elementRegistry.get('SelectAPizzaTask');
 
       modeling.setColor([ elementToColor ], {
@@ -85,12 +85,12 @@
         fill: 'rgb(152, 203, 152)'
       });
 
-      // Option 3: Color via Marker + CSS Styling
+      // 选项 3: 通过 Marker + CSS 样式来修改颜色
       canvas.addMarker('OrderReceivedEvent', 'highlight');
 
     }
 
-    // load + show diagram
+    // 加载 + 展示图表
     $.get('https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/colors/resources/pizza-collaboration.bpmn', showDiagram, 'text');
   </script>
 </body>
