@@ -4,17 +4,17 @@
     <meta charset="UTF-8" />
     <title>Hello World</title>
 
-    <!-- required modeler styles -->
+    <!-- 必需的modeler样式 -->
     <link rel="stylesheet" href="https://unpkg.com/bpmn-js@8.9.1/dist/assets/diagram-js.css">
     <link rel="stylesheet" href="https://unpkg.com/bpmn-js@8.9.1/dist/assets/bpmn-font/css/bpmn.css">
 
-    <!-- modeler distro -->
+    <!-- modeler的发行版 -->
     <script src="https://unpkg.com/bpmn-js@8.9.1/dist/bpmn-modeler.development.js"></script>
 
-    <!-- needed for this example only -->
+    <!-- 只有本示例需要 -->
     <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
 
-    <!-- example styles -->
+    <!-- 示例相关的样式 -->
     <style>
       html, body, #canvas {
         height: 100%;
@@ -48,13 +48,13 @@
   <body>
     <div id="canvas"></div>
 
-    <button id="save-button">print to console</button>
+    <button id="save-button">打印到控制台</button>
 
     <script>
 
       var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
 
-      // modeler instance
+      // 设计器示例
       var bpmnModeler = new BpmnJS({
         container: '#canvas',
         keyboard: {
@@ -63,7 +63,7 @@
       });
 
       /**
-       * Save diagram contents and print them to the console.
+       * 保存图表内容并且打印到控制台
        */
       async function exportDiagram() {
 
@@ -71,36 +71,36 @@
 
           var result = await bpmnModeler.saveXML({ format: true });
 
-          alert('Diagram exported. Check the developer tools!');
+          alert('图表已导入，请检查开发者工具！');
 
-          console.log('DIAGRAM', result.xml);
+          console.log('图表内容', result.xml);
         } catch (err) {
 
-          console.error('could not save BPMN 2.0 diagram', err);
+          console.error('不能保存 BPMN 2.0 图表', err);
         }
       }
 
       /**
-       * Open diagram in our modeler instance.
+       * 在modeler实例中打开图表
        *
-       * @param {String} bpmnXML diagram to display
+       * @param {String} 要展示的bpmnXML图表文本
        */
       async function openDiagram(bpmnXML) {
 
-        // import diagram
+        // 导入图表
         try {
 
           await bpmnModeler.importXML(bpmnXML);
 
-          // access modeler components
+          // 获得 modeler 中的组件
           var canvas = bpmnModeler.get('canvas');
           var overlays = bpmnModeler.get('overlays');
 
 
-          // zoom to fit full viewport
+          // 缩放到适应视图
           canvas.zoom('fit-viewport');
 
-          // attach an overlay to a node
+          // 在node中附加一个overlay
           overlays.add('SCAN_OK', 'note', {
             position: {
               bottom: 0,
@@ -109,19 +109,19 @@
             html: '<div class="diagram-note">Mixed up the labels?</div>'
           });
 
-          // add marker
+          // 添加 marker
           canvas.addMarker('SCAN_OK', 'needs-discussion');
         } catch (err) {
 
-          console.error('could not import BPMN 2.0 diagram', err);
+          console.error('无法导入 BPMN 2.0 图表', err);
         }
       }
 
 
-      // load external diagram file via AJAX and open it
+      // 通过AJAX加载其他的图表文件并且打开
       $.get(diagramUrl, openDiagram, 'text');
 
-      // wire save button
+      // 链接到保存按钮
       $('#save-button').click(exportDiagram);
     </script>
     <!--

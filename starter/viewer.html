@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <title>Hello World</title>
 
-    <!-- viewer distro (without pan and zoom) -->
+    <!-- viewer的发行版（不含带拖拽和缩放功能） -->
     <!--
     <script src="https://unpkg.com/bpmn-js@8.9.1/dist/bpmn-viewer.development.js"></script>
     -->
 
-    <!-- viewer distro (with pan and zoom) -->
+    <!-- viewer的发行版 (含有拖拽和缩放功能) -->
     <script src="https://unpkg.com/bpmn-js@8.9.1/dist/bpmn-navigated-viewer.development.js"></script>
 
-    <!-- needed for this example only -->
+    <!-- 只有本示例需要 -->
     <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.js"></script>
 
-    <!-- example styles -->
+    <!-- 本示例样式 -->
     <style>
       html, body, #canvas {
         height: 100%;
@@ -36,7 +36,7 @@
       }
 
       .needs-discussion:not(.djs-connection) .djs-visual > :nth-child(1) {
-        stroke: rgba(66, 180, 21, 0.7) !important; /* color elements as red */
+        stroke: rgba(66, 180, 21, 0.7) !important; /* 将element填充为绿色 */
       }
     </style>
   </head>
@@ -47,33 +47,33 @@
 
       var diagramUrl = 'https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/dfceecba/starter/diagram.bpmn';
 
-      // viewer instance
+      // viewer 实例
       var bpmnViewer = new BpmnJS({
         container: '#canvas'
       });
 
 
       /**
-       * Open diagram in our viewer instance.
+       * 在 viewer 实例中打开 diagram.
        *
-       * @param {String} bpmnXML diagram to display
+       * @param {String} 要展示的 bpmnXML 图表文本
        */
       async function openDiagram(bpmnXML) {
 
-        // import diagram
+        // 导入图表
         try {
 
           await bpmnViewer.importXML(bpmnXML);
 
-          // access viewer components
+          // 获取 viewer 的组件
           var canvas = bpmnViewer.get('canvas');
           var overlays = bpmnViewer.get('overlays');
 
 
-          // zoom to fit full viewport
+          // 缩放到适应视图
           canvas.zoom('fit-viewport');
 
-          // attach an overlay to a node
+          // 在node中附加一个overlay
           overlays.add('SCAN_OK', 'note', {
             position: {
               bottom: 0,
@@ -82,16 +82,16 @@
             html: '<div class="diagram-note">Mixed up the labels?</div>'
           });
 
-          // add marker
+          // 添加 marker
           canvas.addMarker('SCAN_OK', 'needs-discussion');
         } catch (err) {
 
-          console.error('could not import BPMN 2.0 diagram', err);
+          console.error('无法导入 BPMN 2.0 图表', err);
         }
       }
 
 
-      // load external diagram file via AJAX and open it
+      // 通过AJAX加载其他的图表文件并且打开
       $.get(diagramUrl, openDiagram, 'text');
     </script>
     <!--

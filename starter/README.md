@@ -1,8 +1,7 @@
-# bpmn-js starter
+# bpmn-js 启动器
 
-Try out our toolkit by downloading the [viewer](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/starter/viewer.html) or [modeler](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/starter/modeler.html) example.
-
+通过下载 [viewer](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/starter/viewer.html) 或 [modeler](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/starter/modeler.html) 示例文件来尝试我们的工具包.
 
 [![viewer example screenshot](./viewer.png)](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/starter/viewer.html)
 
-_Screenshot of the [viewer example](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/starter/viewer.html)._
+_[viewer example](https://cdn.staticaly.com/gh/bpmn-io/bpmn-js-examples/master/starter/viewer.html)的截图._
