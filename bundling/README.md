@@ -1,77 +1,72 @@
-
 # bpmn-js bundling example
 
-This example showcases how add and bundle [bpmn-js](https://github.com/bpmn-io/bpmn-js)
-along with a node-style web application using [Webpack](https://webpack.js.org).
-
+此示例演示如何添加和使用 [Webpack](https://webpack.js.org) 打包 [bpmn-js](https://github.com/bpmn-io/bpmn-js)为 node 风格的 Web 应用。
 
 ## About
 
-This example uses bpmn-js to embed the [pizza collaboration](http://demo.bpmn.io/s/pizza-collaboration) diagram into a web application.
+此示例使用 bpmn-js 将[披萨协作图](http://demo.bpmn.io/s/pizza-collaboration)嵌入到 Web 应用中。
 
-![example screenshot](./resources/screenshot.png "Screenshot of the example application")
+![example screenshot](./resources/screenshot.png 'Screenshot of the example application')
 
+## 用法总结
 
-## Usage Summary
-
-Install bpmn-js via [npm](http://npmjs.org)
+通过 [npm](http://npmjs.org)安装 bpmn-js
 
 ```
 npm install --save bpmn-js
 ```
 
-Use it in your application
+在你的应用中使用它
 
 ```javascript
 import BpmnViewer from 'bpmn-js';
 
 var viewer = new BpmnViewer({
-  container: '#canvas'
+  container: '#canvas',
 });
 
+viewer
+  .importXML(pizzaDiagram)
+  .then(function (result) {
+    const { warnings } = result;
 
-viewer.importXML(pizzaDiagram).then(function(result) {
+    console.log('成功 !', warnings);
 
-  const { warnings } = result;
+    viewer.get('canvas').zoom('fit-viewport');
+  })
+  .catch(function (err) {
+    const { warnings, message } = err;
 
-  console.log('success !', warnings);
-
-  viewer.get('canvas').zoom('fit-viewport');
-}).catch(function(err) {
-
-  const { warnings, message } = err;
-
-  console.log('something went wrong:', warnings, message);
-});
+    console.log('出错了:', warnings, message);
+  });
 ```
 
-Bundle the `src/app.js` file for the browser with Webpack:
+使用 webpack 打包 `src/app.js` 文件为浏览器可用的形式
 
 ```
 webpack ./src/app.js -o public/app.bundled.js --mode development
 ```
 
-To learn about more bundling options, checkout the [webpack-cli documentation](https://webpack.js.org/api/cli/).
+想学习更多的打包选项，查看 [webpack-cli documentation](https://webpack.js.org/api/cli/).
 
-__Note:__ You may use another ES module aware bundler such as [Rollup](https://rollupjs.org), too.
-Browserify may also be used but must be properly configured via a global babelify transform.
+**注意:** 你也可以使用其他的 ES 模块打包工具，比如[Rollup](https://rollupjs.org)。也可以使用 Browserify，但必须通过全局 babelify 转换进行正确配置。
 
-
-## Building the Example
+## 构建示例
 
 Install the project dependencies via
+
+通过如下方式安装项目依赖
 
 ```
 npm install
 ```
 
-To create the sample distribution in the `public` folder run
+若要在`public`文件夹中创建示例，请运行
 
 ```
 npm run all
 ```
 
-
-## License
+## 许可证
 
 MIT

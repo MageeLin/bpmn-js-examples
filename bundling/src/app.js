@@ -1,9 +1,8 @@
-// we use stringify to inline an example XML document
+// 使用stringify来获取pizzaDiagram的文本
 import pizzaDiagram from '../resources/pizza-collaboration.bpmn';
 
 
-// make sure you added bpmn-js to your your project
-// dependencies via npm install --save bpmn-js
+// 确保通过 npm install --save bpmn-js 将 bpmn-js添加到项目依赖项中
 import BpmnViewer from 'bpmn-js';
 
 var viewer = new BpmnViewer({
@@ -22,5 +21,5 @@ viewer.importXML(pizzaDiagram).then(function(result) {
 
   const { warnings, message } = err;
 
-  console.log('something went wrong:', warnings, message);
+  console.log('出错了:', warnings, message);
 });
