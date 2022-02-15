@@ -9,7 +9,7 @@ import CustomLoggingModule from './features/logging';
 
 
 /**
- * A viewer that includes mouse navigation and other goodies.
+ * 一个viewer，包含了navigation和其他自定义的功能
  *
  * @param {Object} options
  */
@@ -25,6 +25,7 @@ CustomViewer.prototype._customModules = [
   CustomLoggingModule
 ];
 
+// 给视图添加modules
 CustomViewer.prototype._modules = [].concat(
   Viewer.prototype._modules,
   CustomViewer.prototype._customModules
