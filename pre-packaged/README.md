@@ -18,7 +18,7 @@ Download or simply include the relevant dependencies into your website:
 #### Viewer
 
 ```html
-<!-- required viewer styles -->
+<!-- 必需的 viewer 样式 -->
 <link rel="stylesheet" href="https://unpkg.com/bpmn-js@9.0.2/dist/assets/bpmn-js.css" />
 
 <script src="https://unpkg.com/bpmn-js@9.0.2/dist/bpmn-viewer.development.js"></script>

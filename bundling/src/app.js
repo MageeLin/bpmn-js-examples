@@ -14,7 +14,7 @@ viewer.importXML(pizzaDiagram).then(function(result) {
 
   const { warnings } = result;
 
-  console.log('success !', warnings);
+  console.log('成功 !', warnings);
 
   viewer.get('canvas').zoom('fit-viewport');
 }).catch(function(err) {
