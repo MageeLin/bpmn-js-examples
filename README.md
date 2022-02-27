@@ -31,7 +31,7 @@
 - [bpmn-js-task-priorities](https://github.com/bpmn-io/bpmn-js-task-priorities) - 持久化任务颜色、图表交互和自定义扩展 element 的 demo.
 - [bpmn-js-in-color](https://github.com/bpmn-io/bpmn-js-in-color) - 在[BPMN in Color](https://github.com/bpmn-miwg/bpmn-in-color) 提案的基础上为 BPMN 添加颜色.
 - [bpmn-js-example-react-properties-panel](https://github.com/bpmn-io/bpmn-js-example-react-properties-panel) - 一个示例，展示了在使用 React 的情况下，如何创建一个简单的属性面板.
-- [custom-bundle](./custom-bundle) - 如何创建一个自定义版本的 bpmn-js
+- [custom-bundle](./custom-bundle) - 如何创建一个自定义打包的 bpmn-js
 - [bpmn-js-example-model-extension](https://github.com/bpmn-io/bpmn-js-example-model-extension) - 创建一个 bpmn-js 的 model 扩展的示例.
 - [bpmn-js-example-custom-rendering](https://github.com/bpmn-io/bpmn-js-example-custom-rendering) - 创建一个 bpmn-js 自定义渲染的示例.
 - [bpmn-js-example-custom-controls](https://github.com/bpmn-io/bpmn-js-example-custom-controls) - 创建一个 bpmn-js 自定义 control 的示例.
